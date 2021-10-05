@@ -1,0 +1,657 @@
+body{
+	background-image: url('background.jpg');
+	animation-name: backAnimation;
+	animation-duration: 10s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes backAnimation{
+	25%{
+		background-image: url('background2.jpeg');
+	}
+
+	50%{
+		background-image: url('background3.png');
+	}
+
+	75%{
+		background-image: url('background4.jpg');
+	}
+
+	100%{
+		background-image: url('background5.jpeg');
+	}
+}
+
+.heading{
+	position: absolute;
+	width: 1400px;
+	top: 50px;
+	right: 250px;
+	color: darkblue;
+	font-weight: bold;
+	font-size: 100px;
+	animation-name: headAnimation;
+	animation-duration: 10s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes headAnimation{
+	0%{
+		color: darkblue;
+	}
+
+	5%,15%,35%,45%,55%,65%,85%,95%{
+		color: black;
+	}
+
+	10%,20%,30%,40%,60%,70%,80%,90%{
+		color: white;
+	}
+
+	25%{
+		color: red;
+	}
+
+	50%{
+		color: green;
+	}
+
+	75%{
+		color: orange;
+	}
+
+	100%{
+		color: black;
+	}
+}
+
+.warning{
+	position: absolute;
+	top: 300px;
+	color: red;
+	font-weight: bold;
+	font-size: 75px;
+}
+
+.logo1{
+	position: absolute;
+	right: 50px;
+	height: 200px;
+	width: 200px;
+	border-radius: 50%;
+	cursor: pointer;
+	animation-name: spin;
+	animation-duration: 5s;
+  	animation-iteration-count: infinite;
+}
+
+.logo2{
+	position: absolute;
+	left: 50px;
+	height: 200px;
+	width: 200px;
+  	border-radius: 50%;
+  	cursor: pointer;
+  	animation-name: spin;
+  	animation-duration: 5s;
+  	animation-iteration-count: infinite;
+}
+
+@keyframes spin{
+	100%{
+		-webkit-transform: rotate(360deg);
+	}
+
+	5%,15%,25%,35%,45%,55%,65%,75%,85%,95%{
+		opacity: 1;
+	}
+
+	10%,20%,30%,40%,50%,60%,70%,80%,90%,100%{
+		opacity: 0;
+	}
+}
+
+.back{
+	position: absolute;
+	left: 10px;
+	border-radius: 50%;
+}
+
+.toMainPage{
+	position: absolute;
+	top: -80px;
+	right: 120px;
+	border-radius: 50%;
+	transform: rotate(180deg);
+}
+
+.background{
+	position: absolute;
+	top: 30%;
+	left: 0%;
+}
+
+.features{
+	position: absolute;
+	right: 10px;
+	font-size: 50px;
+	color: darkred;
+	font-weight: bold;
+	top: 35%;
+}
+
+.accountButtons{
+	background-color: green;
+	color: white;
+	font-size: 30px;
+	font-weight: bold;
+	width: 500px;
+	height: 50px;
+}
+
+.login{
+	position: absolute;
+	top: 27%;
+	left: 20%;
+	background-color: white;
+	width: 1200px;
+	height: 620px;
+	border-radius: 30px;
+}
+
+.reset{
+	position: absolute;
+	top: 27%;
+	left: 20%;
+	background-color: white;
+	width: 1200px;
+	height: 670px;
+	border-radius: 30px;
+}
+
+.signup{
+	position: absolute;
+	top: 27%;
+	left: 20%;
+	background-color: white;
+	width: 1200px;
+	height: 850px;
+	border-radius: 30px;
+}
+
+.fields{
+	font-size: 50px;
+	color: blue;
+	border: none;
+  	border-bottom: 2px solid red;
+  	transition: width 0.4s ease-in-out;
+}
+
+.fields2{
+	font-size: 30px;
+	color: blue;
+	border: none;
+  	border-bottom: 2px solid red;
+  	transition: width 0.4s ease-in-out;
+}
+
+.fields:focus{
+	border: 5px solid red;
+	width: 100%;
+}
+
+.fields2:focus{
+	border: 5px solid red;
+	width: 60%;
+}
+
+.labels{
+	color: blue;
+	font-size: 40px;
+}
+
+.button{
+	background-color: green;
+	color: white;
+	font-size: 30px;
+	font-weight: bold;
+	width: 300px;
+	height: 50px;
+}
+
+.enroll{
+	position: relative;
+	top: 130px;
+	left: 1400px;
+	background-color: green;
+	color: white;
+	font-size: 30px;
+	font-weight: bold;
+	width: 300px;
+	height: 50px;
+}
+
+.subjects{
+	position: absolute;
+	top: 300px;
+	width: 95%;
+	height: 100px;
+	color: white;
+	font-size: 25px;
+	font-weight: bold;
+	list-style-type: none;
+}
+
+.newSubject{
+	position: absolute;
+	top: 27%;
+	left: 20%;
+	background-color: white;
+	width: 1200px;
+	height: 550px;
+	border-radius: 30px;
+}
+
+.subject_name{
+	font-size: 35px;
+	font-weight: bold;
+	color: yellow;
+}
+
+.subjectNameHeading{
+	position: absolute;
+	top: 145px;
+	color: red;
+	font-size: 30px;
+	font-weight: bold;
+	left:700px;
+}
+
+.subject{
+	width: 100%;
+	color: white;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.subject, .accountButtons:hover{
+	cursor: pointer;
+}
+
+.teacher_name{
+	font-size: 30px;
+	font-weight: italic;
+	color: yellow;
+	position: relative;
+	left: 600px;
+	top: -50px;
+}
+
+.assignment_count{
+	font-size: 25px;
+	font-weight: bold;
+	color: white;
+}
+
+.test_count{
+	font-size: 25px;
+	font-weight: bold;
+	color: white;
+}
+
+.code{
+	position: relative;
+	left: 1300px;
+	top: -50px;
+	font-size: 25px;
+	font-weight: italic;
+	color: darkred;
+	background-color: white;
+	height: 50px;
+	border-radius: 15px;
+	border-style: solid;
+	border-color: black;
+	border-width: 5px;
+	width: 400px;
+}
+
+.assignments{
+	position: absolute;
+	top: 265px;
+	left: 670px;
+	width: 580px;
+	height: 600px;
+	background-image: url('blue.jpeg');
+	background-repeat: no-repeat;
+	background-size: 580px 600px;
+	color: white;
+	font-size: 70px;
+	font-weight: bold;
+	border-radius: 20%;
+	border-color: red;
+	border-width: 10px;
+}
+
+.notes{
+	position: absolute;
+	top: 265px;
+	left: 30px;
+	width: 580px;
+	height: 600px;
+	background-image: url('pink.jpg');
+	background-repeat: no-repeat;
+	background-size: 580px 600px;
+	color: white;
+	font-size: 80px;
+	font-weight: bold;
+	border-radius: 20%;
+	border-color: red;
+	border-width: 10px;
+}
+
+.tests{
+	position: absolute;
+	top: 265px;
+	left: 1300px;
+	width: 580px;
+	height: 600px;
+	background-image: url('green.jpg');
+	background-repeat: no-repeat;
+	background-size: 580px 700px;
+	color: white;
+	font-size: 80px;
+	font-weight: bold;
+	border-radius: 20%;
+	border-color: red;
+	border-width: 10px;
+}
+
+.upload{
+	position: absolute;
+	top: 190px;
+	left: 1400px;
+	background-color: green;
+	color: white;
+	font-size: 30px;
+	font-weight: bold;
+	width: 300px;
+	height: 50px;
+}
+
+.upload, .assignments, .tests, .notes:hover{
+	cursor: pointer;
+}
+
+.content{
+	position: absolute;
+	top: 300px;
+	left: 10%;
+	font-size: 30px;
+	font-weight: italic;
+	color: blue;
+	border-radius: 3%;
+	border-color: green;
+	border-width: 10px;
+}
+
+.content:focus{
+	border-color: darkred;
+	outline: none;
+}
+
+#counter{
+	position: absolute;
+	top: 230px;
+	left: 10%;
+	font-size: 30px;
+	font-weight: bold;
+	color: red;
+}
+
+.uploadFiles{
+	position: absolute;
+	top: 350px;
+	right: 100px;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+#uploadFileButton{
+	font-size: 30px;
+	font-weight: bold;
+	width: 500px;
+	height: 50px;
+	background-color: green;
+	color: yellow;
+	cursor: pointer;
+	border-radius: 20px;
+	border-color: red;
+	border-width: 5px;
+	-webkit-appearance : none
+}
+
+#uploadFileButton:hover{
+	color: white;
+	background-color: darkblue;
+	cursor: pointer;
+}
+
+#documents{
+	list-style-type: none;
+	position: absolute;
+	top: 500px;
+	right: 100px;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
+	height: 270px;
+}
+
+.document{
+	font-size: 30px;
+	font-weight: bold;
+	color: blue;
+	background-color: white;
+	height: 60px;
+	width: 43ch;
+	border-radius: 10px;
+	border-color: darkred;
+	border-width: 10px;
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.head1{
+	font-size: 40px;
+	color: darkred;
+}
+
+.notesDetails, .assignmentsDetails, .testsDetails, .solutions{
+	position: absolute;
+	top: 250px;
+	width: 95%;
+	height: 100px;
+	color: white;
+	font-size: 25px;
+	font-weight: bold;
+	list-style-type: none;
+}
+
+.note, .assignment, .test, .solution{
+	width: 100%;
+	font-size: 35px;
+	font-weight: bold;
+	margin-top: 50px;
+	background-color: lightgray;
+	border-radius: 10px;
+	border-color: green;
+	border-width: 5px;
+}
+
+.noteLogo, .assignmentLogo, .testLogo{
+	display: inline-block;
+	margin-left: 30px;
+	padding-top: 50px;
+	width: 140px;
+	height: 140px;
+	float: left;
+	border-radius: 50%;
+	border-width: 5px;
+	borer color: red;
+}
+
+.documents{
+	list-style-type: none;
+	position: absolute;
+	top: 350px;
+	right: 20px;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
+	height: 430px;
+}
+
+.documentName{
+.	display: inline-block;
+	width: 40ch;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 25px;
+	font-weight: bold;
+	color: blue;
+	background-color: white;
+	border-radius: 10px;
+	justify-content: center;
+	align-items: center;
+	padding-top: 10px;
+}
+
+.documentImage{
+	display: inline-block;
+	margin-left: 30px;
+	width: 70px;
+	height: 70px;
+	float: left;
+}
+
+.documentButton{
+	margin-top: 40px;
+	width: 700px;
+	height: 90px;
+	background-color: white;
+	border-color: darkblue;
+	border-radius: 10px;
+	border-width: 5px;
+}
+
+.uploadDetails{
+	color: red;
+	font-size: 40px;
+	position: absolute;
+	top: 180px;
+	font-weight: bold;
+	right: 30%;
+}
+
+.DeadlineDetails{
+	color: red;
+	font-size: 40px;
+	position: absolute;
+	top: 180px;
+	font-weight: bold;
+	right: 100px;
+}
+
+.maximumMarks{
+	color: red;
+	font-size: 40px;
+	position: absolute;
+	top: 265px;
+	font-weight: bold;
+	right: 100px;
+}
+
+.deadline{
+	position: absolute;
+	top: 280px;
+	right: 150px;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.date, .time{
+	color: blue;
+	font-weight: bold;
+	font-size: 25px;
+}
+
+.marks{
+	color: blue;
+	width: 200px;
+	height: 60px;
+	font-size: 25px;
+	position: absolute;
+	top: 1050px;
+	left: 300px;
+	border-radius: 10px;
+	border-width: 10px;
+	border-color: red;
+}
+
+.marksLabel{
+	color: green;
+	width: 200px;
+	height: 60px;
+	font-size: 25px;
+	position: absolute;
+	top: 1075px;
+	left: 150px;
+	font-weight: bold;
+}
+
+.DetailsButton{
+	position: absolute;
+	top: 1200px;
+	right: 37%;
+	width: 400px;
+	height: 60px;
+	background-color: darkblue;
+	color: white;
+	font-size: 35px;
+	font-weight: bold;
+	border-color: red;
+	border-radius: 10px;
+	border-width: 5px;
+	border-style: solid;
+}
+
+.DetailsButton:hover{
+	cursor: pointer;
+	background-color: red;
+	border-color: darkblue;
+}
+
+.test, .assignment, .note, .solution:hover{
+	cursor: pointer;
+}
+
+.documentButton:hover{
+	cursor: pointer;
+}
+
+.ATSolutions{
+	background-color: white;
+	position: absolute;
+	top: 300px;
+	left: 500px;
+	border: 10px double darkred;
+	border-radius: 20px;
+	width: 800px;
+	height: 700px;
+}
+
+.ATSolutions:hover{
+	border-color: darkgreen;
+}

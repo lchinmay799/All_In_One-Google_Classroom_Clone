@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	
+	<title>All In One</title>
+</head>
+
+<body>
+
+	<form method="POST" action={{toPage}}>
+
+		<input type="image" name="logo1" class='logo1' src="static/logo.jpg" height="250px" width="250px">	
+
+		<input type="image" name="logo2" class='logo2' src="static/logo.jpg" height="250px" width="250px">
+
+		<input type="image" name="back" src="static/back.png" height="55px" width="55px">
+	
+		<input type="hidden" name="pageName" value="solutionDetails">
+
+	</form>
+
+	<div class="heading">
+		<marquee>
+			ALL IN ONE
+		</marquee>
+	</div>
+
+	<div class="ATSolutions">
+
+		<form method="POST" action="downloadDocuments">
+
+			<p style="position: absolute;top: 30px;left: 200px;color: green;
+			font-weight: bold;font-size: 30px;">Submitted On : <font color="red">{{data[1]}}</font></p>
+
+			<ul class="documents" style="position:absolute;top: 150px;">
+
+			{% for i in data[2] %}
+
+				<li>
+					<button name = "file" value={{i[0]}} class="documentButton" style="background-color: darkblue;">
+						<img src="static/document.png" class="documentImage" width="60px" height="60px">
+						<p class="documentName" style="color:white; background-color: darkblue;">{{i[1]}}</p>
+					</button>	
+				</li>	
+
+			{% endfor %}
+				
+		</ul>
+
+
+		</form>
+
+		
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	
+	<title>All In One</title>
+</head>
+
+<body>
+
+	<form method="POST" action='homePage'>
+
+		<input type="image" name="logo1" class='logo1' src="static/logo.jpg" height="250px" width="250px">	
+
+		<input type="image" name="logo2" class='logo2' src="static/logo.jpg" height="250px" width="250px">
+	
+
+		<input type="image" name="back" src="static/back.png" height="55px" width="55px">
+		
+		<input type="hidden" name="pageName" value="mainPage">
+
+	</form>
+
+	<div class="heading">
+		<marquee>
+			ALL IN ONE
+		</marquee>
+	</div>
+
+	{% if message %}
+		<marquee class="warning">
+			{{message}}
+		</marquee>
+
+	{% else %}
+	<form method='post' action="subjects">
+		
+		<center>	
+			
+			<ul class='subjects'>
+			
+			{% if subject.user.user_type == 'student' %}
+				{% for i in subject.subjects %}
+				
+				<li>
+					
+					<button class='subject' 
+					style='background-image:url({{ colors[loop.index -1 ] }});
+					background-repeat: no-repeat; background-size: 100% 100%' name="subject" value='{{i[0]}}' >
+					
+					<p class="subject_name">{{i[1]}}</p>
+					
+					<p class="teacher_name">{{i[2]}}</p>
+					
+					<p class="assignment_count">Number of Assignments not Submitted : {{i[3]}}</p>
+					
+					<p class="test_count">Number of Tests not Submitted : {{i[4]}}</p>
+					
+					</button><br><br><br>
+				
+				</li>
+				
+				{% endfor %}
+
+			{% else %}
+				{% for i in subject.subjects %}
+
+				<li>
+
+					<button class='subject' style='background-image:url({{ colors[loop.index -1 ] }});
+					background-repeat: no-repeat; background-size: 100% 100%' name="subject" value={{i[0]}}>
+					
+					<p class="subject_name">{{i[1]}}</p>
+					
+					<p class='code'>Classroom Code : {{i[2]}}</p>
+					
+					<p class="student_count">Number of Students Enrolled : {{i[5]}} </p>
+					
+					<p class="assignment_count">Number of Assignmets not submitted by All Students : {{i[3][0]}} </p>
+					
+					<p class="test_count">Number of Tests not submitted by All Students : {{i[4]}}</p>
+					
+					</button><br><br><br>
+
+				</li>
+
+				{% endfor %}
+			{% endif %}
+			</ul>
+
+		</center>
+		
+		<input type="hidden" name="pageName" value='mainPage'>
+		
+		</form>	
+
+	{% endif %}
+
+	<br><br>
+		<a href={{target}}><input type='button' value={{button}} class='enroll'></a>
+
+</body>
+</html>

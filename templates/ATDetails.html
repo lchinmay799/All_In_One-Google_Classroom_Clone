@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	
+	<title>All In One</title>
+</head>
+
+<body>
+	<img class='logo1' src="static/logo.jpg" height="250px" width="250px">	
+	<img class='logo2' src="static/logo.jpg" height="250px" width="250px">
+	
+	<form method="POST" action={{pageName}}>
+
+		<input type="image" name="back" src="static/back.png" height="55px" width="55px">
+	
+		<input type="hidden" name="pageName" value="ATDetails">
+
+	</form>
+
+	<div class="heading">
+		<marquee>
+			ALL IN ONE
+		</marquee>
+	</div>
+
+	<script type="text/javascript">
+
+		function getCharCount(obj){
+			document.getElementById('counter').innerHTML = (1000 - obj.value.length)+ ' / 1000';
+		}
+
+		function getFileCount(){
+			const inputButton = document.getElementById('file');
+			const uploadButton = document.getElementById('uploadFileButton');
+
+			var uploaded=document.getElementById("uploadedDocuments")
+			var updatable=document.getElementById("updatable")
+			
+			if(uploaded != null && updatable.getAttribute("value") == "True")
+			{
+				uploaded. parentNode. removeChild(uploaded);
+
+				var upload = document.getElementById("documents")
+				upload.style.display="block";
+			}
+			
+			inputButton.click()
+
+			inputButton.addEventListener('change', function() {
+   				document.getElementById('fileCounter').innerHTML = this.files.length+' Files Chosen';
+   				const list=document.getElementById('documents');
+   				list.innerHTML='';
+
+   				for(var i=0;i<this.files.length;i++){
+   					const img=document.createElement('img');
+		   			img.src = "static/document.png";
+	   				img.width = "60";
+	   				img.height = "60";
+	   				img.className = "documentImage";
+   					
+   					var frag= document.createDocumentFragment();
+	   				const entry=document.createElement('li');
+	   				entry.className="document";
+	   				
+	   				entry.appendChild(img);
+	   				var name=this.files[i].name;
+
+	   				if (name.length > 40)
+	   					name=name.substring(0,37)+'...';
+
+   					entry.appendChild(document.createTextNode(name));
+   					frag.appendChild(entry);
+   					
+   					list.appendChild(frag);
+   				}
+
+			});
+		}
+
+	</script>
+
+		{% if solved_data %}
+
+			<form method="post" action="downloadDocuments">
+
+				<ul class="documents" id="uploadedDocuments" style="position:absolute; top:1000px;">
+
+					{% for i in solved_data %}
+
+						<li>
+
+							<button name = "file" value={{i[0]}} class="documentButton">
+								<img src="static/document.png" class="documentImage" width="60px" height="60px">
+								<p class="documentName">{{i[1]}}</p>
+							</button>
+						
+						</li>	
+
+					{% endfor %}
+				
+				</ul>
+
+			</form>
+
+		{% endif %}
+
+	<form method="post" action="solutions" enctype="multipart/form-data">
+		
+		{% if teacher %}
+
+			<button class="DetailsButton" name="details" value={{pageName}}>SEE DETAILS</button>
+
+		{% else %}
+
+			<div class="uploadFiles" style="position:absolute; top: 900px;">
+	
+				<input type="file" name="files" class="uploadFile" id="file" multiple style="display: none;">
+
+				{% if score %}
+
+					<p class="score" style="color:darkblue;font-weight: bold;
+					font-size: 35px;">Score : <font color="darkgreen">{{score}}</font> / <font color="darkred">{{marks}}</font></p>
+
+				{% endif %}
+				
+				<button type="button" name="uploadButton" id="uploadFileButton" onclick="getFileCount()">ATTACH FILES TO UPLOAD</button><br><br>
+
+				<p id="updatable" style="display:None" value={{canBeUpdated}}></p>
+				
+				<span id="fileCounter" style="color: red; text-overflow: ellipsis;">{{solved_data|length}} Files Chosen</span>
+	
+			</div>
+
+			<ul id="documents" style="position:absolute; top:1000px;display: none;">
+			</ul>
+
+			<button class="button" style="position: absolute;
+			top: 1400px; left: 45%;" name='upload' value={{pageName}}>SUBMIT</button>
+
+			<input type="hidden" name="Id" value={{Id}}>
+
+		{% endif %}
+
+	</form>
+
+	<form method="post" action="downloadDocuments" class="NAT">
+
+		<p class="uploadDetails" style="position: absolute;left: 200px;">Uploaded On : <font color="darkorange"> {{data[1]}}</font></p>
+
+		<p class="DeadlineDetails">To Be Submitted Before : <font color="darkorange"> {{data[2]}}</font></p>
+
+		{% if pageName=='tests' %}
+
+			<p class="maximumMarks">Marks : <font color="green"> {{data[4]}}</font></p>
+
+		{% endif %}
+		
+		<textarea class="content" rows="20" cols="50" maxlength="1000"
+			name="content" required readonly>{{data[0]}}</textarea>
+
+		<ul class="documents">
+
+			{% for i in data[3] %}
+
+				<li>
+
+					<button name = "file" value={{i[0]}} class="documentButton">
+						<img src="static/document.png" class="documentImage" width="60px" height="60px">
+						<p class="documentName">{{i[1]}}</p>
+					</button>
+						
+				</li>	
+
+			{% endfor %}
+				
+		</ul>
+
+	</form>
+
+</body>
+</html>

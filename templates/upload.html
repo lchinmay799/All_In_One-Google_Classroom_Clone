@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	
+	<title>All In One</title>
+</head>
+
+<body>
+
+	<form method="POST" action={{pageName}}>
+
+		<input type="image" name="logo1" class='logo1' src="static/logo.jpg" height="250px" width="250px">	
+
+		<input type="image" name="logo2" class='logo2' src="static/logo.jpg" height="250px" width="250px">
+
+		<input type="image" name="back" src="static/back.png" height="55px" width="55px">
+	
+		<input type="hidden" name="pageName" value="upload">
+
+	</form>
+
+	<div class="heading">
+		<marquee>
+			ALL IN ONE
+		</marquee>
+	</div>
+
+	<script type="text/javascript">
+
+		function getCharCount(obj){
+			document.getElementById('counter').innerHTML = (1000 - obj.value.length)+ ' / 1000';
+		}
+
+		function getFileCount(){
+			const inputButton = document.getElementById('file');
+			const uploadButton = document.getElementById('uploadFileButton');
+			
+			inputButton.click()
+
+			inputButton.addEventListener('change', function() {
+   				document.getElementById('fileCounter').innerHTML = this.files.length+' Files Chosen';
+   				const list=document.getElementById('documents');
+   				list.innerHTML='';
+
+   				for(var i=0;i<this.files.length;i++){
+   					const img=document.createElement('img');
+		   			img.src = "static/document.png";
+	   				img.width = "60";
+	   				img.height = "60";
+	   				img.className = "documentImage";
+   					
+   					var frag= document.createDocumentFragment();
+	   				const entry=document.createElement('li');
+	   				entry.className="document";
+	   				
+	   				entry.appendChild(img);
+	   				var name=this.files[i].name;
+
+	   				if (name.length > 40)
+	   					name=name.substring(0,37)+'...';
+
+   					entry.appendChild(document.createTextNode(name));
+   					frag.appendChild(entry);
+   					
+   					list.appendChild(frag);
+   				}
+
+			});
+		}
+
+	</script>
+
+	<form method="post" action="newDocument" class="NAT" enctype="multipart/form-data">
+
+		<textarea class="content" rows="20" cols="50" maxlength="1000"
+			onkeyup="getCharCount(this);" placeholder="Announce Something to your Class ..." name="content" required></textarea>
+		<p id="counter">1000 / 1000</p>
+
+		<div class="uploadFiles">
+	
+			<input type="file" name="files" class="uploadFile" id="file" multiple style="display: none;">
+			<button type="button" name="uploadButton" id="uploadFileButton"
+			onclick="getFileCount()">ATTACH FILES TO UPLOAD</button><br><br>
+			<span id="fileCounter" style="color: red; text-overflow: ellipsis;">No Files Chosen</span>
+	
+		</div>
+
+		<ul id="documents">
+		</ul>
+
+		{% if pageName == 'assignments' or pageName == 'tests' %}
+
+		<div class = 'deadline'>
+			<label style="color:darkred; font-size: 30px;font-weight: bold;
+			"> DEADLINE</label>
+			<input type="date" name="date" min={{date}} class="date" required>
+			<input type="time" name="time" class="time" required>
+       	
+       	</div>
+
+		{% endif %}
+			
+		{% if pageName == 'tests' %}
+
+			<label for="marks" class="marksLabel">MARKS</label>
+			<input type="number" name="marks" placeholder="Enter the Marks for the Test" class="marks" required>
+
+		{% endif %}
+		
+		<input type="hidden" name="pageName" value='{{pageName}}'>
+
+		<button class="button" style="position: absolute;
+		top: 1100px; left: 45%;">SUBMIT</button>
+	</form>
+
+</body>
+</html>

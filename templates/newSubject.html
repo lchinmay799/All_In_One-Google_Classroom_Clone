@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	
+	<title>All In One</title>
+</head>
+
+<body>
+
+	<form method="POST" action='mainPage'>
+
+		<input type="image" name="logo1" class='logo1' src="static/logo.jpg" height="250px" width="250px">	
+
+		<input type="image" name="logo2" class='logo2' src="static/logo.jpg" height="250px" width="250px">
+	
+		<input type="image" name="back" src="static/back.png" height="55px" width="55px">
+	
+		<input type="hidden" name="pageName" value="newSubject">
+
+	</form>
+
+	<div class="heading">
+		<marquee>
+			ALL IN ONE
+		</marquee>
+	</div>
+
+	<form class='newSubject' method='post' action='subjects'>
+		
+		<center>
+			<br><br><br><br>
+			<label for="subjectName" class='labels'><b>Subject Name</b></label><br><br>
+			<input type="text" name="subjectName" placeholder='Enter the Subject Name' class='fields' size="30" required><br><br><br><br><br><br>
+			
+			<input type="hidden" name="pageName" value="newSubject">
+			<button class="button">SUBMIT</button>
+		
+		</center>
+	</form>
+
+</body>
+</html>

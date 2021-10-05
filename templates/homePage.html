@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	
+	<title>All In One</title>
+</head>
+
+<body>
+
+	<img class='logo1' src="static/logo.jpg" height="250px" width="250px">	
+	<img class='logo2' src="static/logo.jpg" height="250px" width="250px">
+
+	<div class="heading">
+		<marquee>
+			ALL IN ONE
+		</marquee>
+	</div>
+
+	<img class="background" src="static/background2.png" width="1000px">
+	
+	<div class='features'>
+		
+		<ul>
+			<li>Gather all students in a Single Platform</li><br><br>
+			<li>Coduct Classes Online</li><br><br>
+			<li>Give Assignments and Tests</li><br><br>
+		</ul>
+
+		{% if loggedIn %}
+
+			<form method="POST" action="mainPage">
+
+				<input type="hidden" name="pageName" value="homepage">
+
+				<input type="image" class="toMainPage" name = "toMainPage" src="static/back.png" height="100px" width="100px">
+
+				<button class="button" name="logout" style="position:absolute;top: -60px; right: 275px; border-radius: 10px; background-color: darkred;" value="logout">
+				LOGOUT</button>
+
+			</form>
+
+		{% else %}
+		
+			<center>
+				
+				<a href='login'><input type='button' class="accountButtons" value='ALREADY HAVE ACCOUNT ?'></a><br><br>
+				
+				<a href='signup'><input type='button' class="accountButtons" value='CREATE NEW ACCOUNT'></a>
+			
+			</center>
+
+		{% endif %}	
+	
+	</div>
+
+</body>
+</html>

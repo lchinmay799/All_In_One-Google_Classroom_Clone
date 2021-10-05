@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	
+	<title>All In One</title>
+</head>
+
+<body>
+
+	<form method="POST" action='subjects'>
+		
+		<input type="image" name="logo1" class='logo1' src="static/logo.jpg" height="250px" width="250px">	
+
+		<input type="image" name="logo2" class='logo2' src="static/logo.jpg" height="250px" width="250px">
+
+		<input type="image" name="back" src="static/back.png" height="55px" width="55px">
+	
+		<input type="hidden" name="pageName" value="assignments">
+
+	</form>
+
+	<div class="heading">
+		<marquee>
+			ALL IN ONE
+		</marquee>
+	</div>
+
+	<form method="post" action="ATDetails">
+
+		{% if teacher%}
+	   		<button value='UPLOAD' class='upload' name="upload">UPLOAD</button>
+		{% endif %}
+
+		<input type="hidden" name="pageName" value="assignments">
+
+		{% if message %}
+
+			<marquee class="warning">
+				{{message}}
+			</marquee>
+
+		{% else %}
+			{% if assignments %}
+
+				<ul class="assignmentsDetails">
+				
+					{% for i in assignments %}
+						<li>
+
+							<button name="assignment" class="assignment" value={{i[0]}}>
+								<img src="static/assignment.jpg" class="assignmentLogo">
+								<p class='head1'>Assignment {{loop.index}}</p>
+								<p class='head2'>New Assignment Posted by : <font color="blue">{{teacher_name}} </font> On : <font color="green">{{i[1]}}</font></p>
+							</button> 
+
+						</li>
+
+					{% endfor %}
+						
+				</ul>
+
+			{% endif %}
+
+		{% endif %}	
+		
+	</form>
+
+
+</body>
+</html>

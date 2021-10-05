@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	
+	<title>All In One</title>
+</head>
+
+<body>
+
+	<form method="POST" action='homePage'>
+
+		<input type="image" name="logo1" class='logo1' src="static/logo.jpg" height="250px" width="250px">	
+
+		<input type="image" name="logo2" class='logo2' src="static/logo.jpg" height="250px" width="250px">
+
+		<input type="image" name="back" src="static/back.png" height="55px" width="55px">
+	
+		<input type="hidden" name="pageName" value="signup">
+
+	</form>
+
+	<div class="heading">
+		<marquee>
+			ALL IN ONE
+		</marquee>
+	</div>
+
+	<center>
+		<form class='signup' method="post" action="mainPage">
+
+			<img src="static/signup.png" style="position: absolute; right: 100px; top: -5px;" width="250px" height="170px">
+			<br><br><br><br>
+
+			<label for="username" class='labels'><b>User Name</b></label><br><br>
+			<input type="text" name="username" placeholder='Enter the Username' class='fields2' size="30" required><br><br><br>
+
+			<label for="email" class='labels'><b>E-Mail Address</b></label><br><br>
+			<input type="email" name="email" placeholder='Enter your E-Mail Address' class='fields2' size="30" required><br><br><br>
+
+			<label for="contact" class='labels'><b>Contact Number</b></label><br><br>
+			<input type="tel" name="contact" placeholder='Enter your Contact Number' class='fields2' size="30" maxlength="10" required><br><br><br>
+
+			<br><input type="radio" name="userType" value="Teacher" 
+			style="position: absolute;left: 250px;" required>
+			<label for='teacher' style="color: green; font-size: 45px;
+			font-weight: bold; position: absolute; left:270px;">Teacher</label>
+			<input type="radio" name="userType" value="Student"
+			style="position: absolute; left:800px;">
+			<label for='student'  style="color: red; font-size: 45px;
+			font-weight: bold; position: absolute; left:820px;">Student</label>
+			<br><br><br>
+
+   			<label for="password" class='labels'><b>Password</b></label><br><br>
+			<input type="password" name="password" placeholder='Enter the Password' class='fields2' size="30" required><br><br><br>
+			<input type="password" name="confirmPassword" placeholder='Confirm the Password' class='fields2' size="30" required><br><br><br><br>
+
+			<input type="hidden" name="pageName" value="signup">
+
+			<button class="button">SUBMIT</button>
+		</form>
+	</center>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	
+	<title>All In One</title>
+</head>
+
+<body>
+
+	<form method="post" action="homePage">
+
+		<input type="image" name="logo1" class='logo1' src="static/logo.jpg" height="250px" width="250px">
+
+		<input type="image" name="logo2" class='logo2' src="static/logo.jpg" height="250px" width="250px">
+	
+		<input type="image" name="back" class='back' src="static/back.png" height="55px" width="55px"></a>
+
+	</form>
+	
+	<div class="heading">
+		<marquee>
+			ALL IN ONE
+		</marquee>
+	</div>
+
+	<center>
+		<form class='login' method="post" action="mainPage">
+
+			<img src="static/signin.jpeg" style="position: absolute; right: 100px; top: -5px;" width="250px" height="170px">
+			<br><br><br><br>
+			
+			<label for="email" class='labels'><b>E-Mail Address</b></label><br><br>
+			<input type="email" name="email" placeholder='Enter your E-Mail Address' class='fields' size="30" required><br><br><br><br><br><br>
+
+   			<label for="password" class='labels'><b>Password</b></label><br><br>
+			<input type="password" name="password" placeholder='Enter the Password' class='fields' size="30" required><br><br><br><br>
+			<a href="reset" style="position: absolute; right: 20px; font-size: 30px;">forgot password ?</a><br><br><br><br>
+
+			<input type="hidden" name="pageName" value="login">
+
+			<button class="button">SUBMIT</button>
+			
+		</form>
+	</center>
+
+</body>
+</html>

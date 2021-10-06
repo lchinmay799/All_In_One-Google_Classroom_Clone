@@ -6,8 +6,8 @@ import random
 import smtplib
 from email.message import EmailMessage
 
-mailAddress="customer.service.cs7@gmail.com"
-password="qwert!@#$%"
+mailAddress=<email_address>
+password=<password>
 
 def getCharFromNum(n):
 	d=96+max(1,n%26)
